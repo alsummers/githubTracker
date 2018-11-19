@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row, Col} from 'reactstrap'
+import {Button, Col} from 'reactstrap'
 import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -33,24 +33,25 @@ class App extends Component {
         <div className = "boundaries">{this.state.events.map(event => {
           if(event.type === "PushEvent"){
 
-        return <Row className="card-content" key={event.id}>
+        return <Button className="card-content" key={event.id}><a href={'https://www.github.com/' + event.repo.name + '/commits/master'}>
         <FontAwesomeIcon  className= "checkCircle" icon={faCheckCircle}/>
           <Col >
           <h3 className="title">{event.repo.name.slice(10)}</h3>
           <p>{event.created_at.slice(0,10)}</p>
-          <p>{event.type === "PushEvent" ? 'Push' : "Pull Request"}</p>
+          <p>{event.type}</p>
           <p>{event.payload.commits[0].message}</p>
           </Col>
-        </Row>
+          </a>
+        </Button>
           } else {
-            return <Row className="card-content" key={event.id}>
+            return <Button disabled className="card-content" key={event.id}>
             <FontAwesomeIcon className= "chevron" icon={faAngleUp} />
           <Col>
           <h3 className="title">{event.repo.name.slice(10)}</h3>
           <p>{event.created_at.slice(0,10)}</p>
-          <p>{event.type === "PushEvent" ? 'Push' : "Pull Request"}</p>
+          <p>{event.type}</p>
           </Col>
-        </Row>
+        </Button>
           }
         }
         )}

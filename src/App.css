@@ -13,6 +13,9 @@
   border-radius: .5rem;
   box-shadow: 10px 5px 5px #eceaeafb
 }
+.card-content a {
+  color: white
+}
 .boundaries{
   justify-content: center;
   width: 80vh;
@@ -24,7 +27,7 @@
   font-size: 4rem;
 }
 .chevron{
-  color: slategrey;
+  color: darkgrey;
   font-size: 5rem;
 }
 .App-header {
