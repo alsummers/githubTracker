@@ -11,8 +11,22 @@
   margin: .6rem;
   padding: .6rem;
   border-radius: .5rem;
+  box-shadow: 10px 5px 5px #eceaeafb
 }
-
+.boundaries{
+  justify-content: center;
+  width: 80vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+.checkCircle{
+  color: green;
+  font-size: 4rem;
+}
+.chevron{
+  color: slategrey;
+  font-size: 5rem;
+}
 .App-header {
   background-color: #282c34;
   display: flex;

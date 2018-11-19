@@ -30,24 +30,25 @@ class App extends Component {
           <h3>GitTrack</h3>
           <h6>Events from www.github.com/alsummers</h6>
         </header>
-        <div>{this.state.events.map(event => {
+        <div className = "boundaries">{this.state.events.map(event => {
           if(event.type === "PushEvent"){
 
         return <Row className="card-content" key={event.id}>
-        <FontAwesomeIcon  icon={faCheckCircle}/>
-          <Col>
-          <h3 className="title">{event.type === "PushEvent" ? 'Push' : "Pull Request"}</h3>
+        <FontAwesomeIcon  className= "checkCircle" icon={faCheckCircle}/>
+          <Col >
+          <h3 className="title">{event.repo.name.slice(10)}</h3>
           <p>{event.created_at.slice(0,10)}</p>
-          <p>{event.repo.name.slice(10)}</p>
+          <p>{event.type === "PushEvent" ? 'Push' : "Pull Request"}</p>
+          <p>{event.payload.commits[0].message}</p>
           </Col>
         </Row>
           } else {
             return <Row className="card-content" key={event.id}>
-            <FontAwesomeIcon icon={faAngleUp} />
+            <FontAwesomeIcon className= "chevron" icon={faAngleUp} />
           <Col>
-          <h3 className="title">{event.type === "PushEvent" ? 'Push' : "Pull Request"}</h3>
+          <h3 className="title">{event.repo.name.slice(10)}</h3>
           <p>{event.created_at.slice(0,10)}</p>
-          <p>{event.repo.name.slice(10)}</p>
+          <p>{event.type === "PushEvent" ? 'Push' : "Pull Request"}</p>
           </Col>
         </Row>
           }
